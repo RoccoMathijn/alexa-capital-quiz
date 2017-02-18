@@ -224,17 +224,17 @@ function handleUserGuess(userGaveUp) {
         var country = translatedQuestions[gameQuestions[currentQuestionIndex]].country;
         var spokenQuestion = this.t("CAPITAL_QUESTION", country);
         var questionIndexForSpeech = currentQuestionIndex + 1;
-        var repromptText = this.t("TELL_QUESTION_MESSAGE", "1", spokenQuestion);
+        var repromptText = this.t("TELL_QUESTION_MESSAGE", questionIndexForSpeech, spokenQuestion);
 
         speechOutput += userGaveUp ? "" : this.t("ANSWER_IS_MESSAGE");
         speechOutput += speechOutputAnalysis + this.t("SCORE_IS_MESSAGE", currentScore.toString()) + repromptText;
         
-        var answer = translatedQuestions[gameQuestions[questionIndexForSpeech]].capital;
+        var answer = translatedQuestions[gameQuestions[currentQuestionIndex]].capital;
         var answerText = this.t("CAPITAL_ANSWER", country, answer);
         Object.assign(this.attributes, {
             "speechOutput": repromptText,
             "repromptText": repromptText,
-            "currentQuestionIndex": questionIndexForSpeech,
+            "currentQuestionIndex": currentQuestionIndex,
             "questions": gameQuestions,
             "score": currentScore,
             "correctAnswer": answer,

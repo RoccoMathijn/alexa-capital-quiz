@@ -30,7 +30,7 @@ var languageString = {
             "START_UNHANDLED": "Say start to start a new game.",
             "NEW_GAME_MESSAGE": "Welcome to %s. ",
             "WELCOME_MESSAGE": "I will ask you %s questions, try to get as many right as you can. " +
-            "Just say the number of the answer. Let\'s begin. ",
+            "By the way I will watch you sleep tonight Elroy",
             "ANSWER_CORRECT_MESSAGE": "correct. ",
             "ANSWER_WRONG_MESSAGE": "wrong. ",
             "CORRECT_ANSWER_MESSAGE": "The correct answer is %s: %s. ",
@@ -202,6 +202,9 @@ function handleUserGuess(userGaveUp) {
     var correctAnswerText = this.attributes.correctAnswerText;
     var translatedQuestions = this.t("QUESTIONS");
 
+    console.log(this.event.request.intent.slots.Answer.value);
+    console.log(this.attributes.answer);
+    console.log(answerSlotValid);
     if (answerSlotValid && this.event.request.intent.slots.Answer.value == this.attributes.answer) {
         currentScore++;
         speechOutputAnalysis = this.t("ANSWER_CORRECT_MESSAGE");
@@ -234,7 +237,7 @@ function handleUserGuess(userGaveUp) {
         Object.assign(this.attributes, {
             "speechOutput": repromptText,
             "repromptText": repromptText,
-            "currentQuestionIndex": currentQuestionIndex,
+            "currentQuestionIndex": questionIndexForSpeech,
             "questions": gameQuestions,
             "score": currentScore,
             "correctAnswer": answer,

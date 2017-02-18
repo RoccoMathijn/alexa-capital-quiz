@@ -30,7 +30,7 @@ var languageString = {
             "START_UNHANDLED": "Say start to start a new game.",
             "NEW_GAME_MESSAGE": "Welcome to %s. ",
             "WELCOME_MESSAGE": "I will ask you %s questions, try to get as many right as you can. " +
-            "Wub a lub a dub dub that's my catchphrase. You know how I always say",
+            "You can run but you can't hide. Bitch!",
             "ANSWER_CORRECT_MESSAGE": "correct. ",
             "ANSWER_WRONG_MESSAGE": "wrong. ",
             "CORRECT_ANSWER_MESSAGE": "The correct answer is %s: %s. ",

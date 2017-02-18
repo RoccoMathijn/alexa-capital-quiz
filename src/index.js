@@ -203,9 +203,9 @@ function handleUserGuess(userGaveUp) {
     var translatedQuestions = this.t("QUESTIONS");
 
     console.log(this.event.request.intent.slots.Answer.value);
-    console.log(this.attributes.answer);
+    console.log(this.attributes.correctAnswer);
     console.log(answerSlotValid);
-    if (answerSlotValid && this.event.request.intent.slots.Answer.value == this.attributes.answer) {
+    if (answerSlotValid && this.event.request.intent.slots.Answer.value == this.attributes.correctAnswer) {
         currentScore++;
         speechOutputAnalysis = this.t("ANSWER_CORRECT_MESSAGE");
     } else {

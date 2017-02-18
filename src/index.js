@@ -18,11 +18,10 @@ var languageString = {
         "translation": {
             "QUESTIONS" : questions,
             "GAME_NAME" : "Capital quiz by Elroy and Rocco", // Be sure to change this for your skill.
-            "HELP_MESSAGE": "I will ask you %s multiple choice questions. Respond with the number of the answer. " +
-            "For example, say one, two, three, or four. To start a new game at any time, say, start game. ",
+            "HELP_MESSAGE": "I will ask you %s questions. Respond with the correct answer.",
             "REPEAT_QUESTION_MESSAGE": "To repeat the last question, say, repeat. ",
             "ASK_MESSAGE_START": "Would you like to start playing?",
-            "HELP_REPROMPT": "To give an answer to a question, respond with the number of the answer. ",
+            "HELP_REPROMPT": "To give an answer to a question, respond with the city name of your choice.",
             "STOP_MESSAGE": "Would you like to keep playing?",
             "CANCEL_MESSAGE": "Ok, let\'s play again soon.",
             "NO_MESSAGE": "Ok, we\'ll play another time. Goodbye!",
@@ -222,6 +221,7 @@ function handleUserGuess(userGaveUp) {
         this.emit(":tell", speechOutput)
     } else {
         currentQuestionIndex += 1;
+        var country = translatedQuestions[gameQuestions[currentQuestionIndex]].country;
         var spokenQuestion = this.t("CAPITAL_QUESTION", country);
         var questionIndexForSpeech = currentQuestionIndex + 1;
         var repromptText = this.t("TELL_QUESTION_MESSAGE", "1", spokenQuestion);
